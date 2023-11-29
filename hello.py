@@ -19,12 +19,15 @@ def billing():
     company=request.form['company']
     phone=request.form['phone']
 
-    if 'file' not in request.files:
-        return render_template('bill.html')
-    file=request.files['file']
-    file.save('menu/menu.csv')
-    df=csv_handling()
-    return render_template('bill.html',data=[df,company])
+    try:
+        if 'file' not in request.files:
+            return render_template('bill.html')
+        file=request.files['file']
+        file.save('menu/menu.csv')
+        df=csv_handling()
+        return render_template('bill.html',data=[df,company])
+    except:
+         return render_template('bill.html')
 
 @app.route('/print', methods=['GET','POST'])
 def printfy():
