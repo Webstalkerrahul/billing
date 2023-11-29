@@ -1,0 +1,44 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left rtl:text-right text-black dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                {% for item in data[0] %}
+                    <th scope="col" class="px-6 py-3">
+                        {{item}}
+                    </th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for key,value in data[0].iterrows() %}
+            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+              
+                    <th scope="row" class="px-6 py-4 font-medium text-black whitespace-nowrap dark:text-white">
+                        {{ value['no'] }}
+                    </th>
+                    <td class="px-6 py-4">
+                        {{ value['name'] }}
+                    </td>
+                    
+                    <td class="px-6 py-4">
+                        {{ value['price'] }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ value['qty'] }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ value['item_total'] }}
+                    </td>
+                    
+               
+            </tr>
+            {% endfor %}
+            
+        </tbody>
+    </table>
+    
+                    
+            
+</div>
